@@ -1,0 +1,40 @@
+.contain {
+  border: 2px rgb(150, 150, 150) solid;
+  border-radius: 8px;
+
+  margin-bottom: 40px;
+}
+
+.header {
+  display: flex;
+  padding: 8px 12px;
+  border-bottom: 2px rgb(150, 150, 150) solid;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  background: #e6e6e6;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.iconOptions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleTask {
+  padding: 8px 0px 0px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.footer {
+  display: flex;
+  padding: 16px;
+  border-top: 2px rgb(150, 150, 150) solid;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: #e6e6e6;
+  border-radius: 0px 0px 6px 6px;
+}

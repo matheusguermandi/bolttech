@@ -1,0 +1,8 @@
+.container {
+  background: #e6e6e6;
+  border-radius: 4px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  margin: 6px 6px 8px;
+}
