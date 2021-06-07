@@ -16,16 +16,20 @@
   border-radius: 6px 6px 0px 0px;
 }
 
-.iconOptions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.optionIcon {
+  cursor: pointer;
 }
 
 .titleTask {
-  padding: 8px 0px 0px;
+  padding: 8px;
   text-align: center;
   font-weight: bolder;
+  border-bottom: 1px rgb(150, 150, 150) solid;
+}
+
+.noTask {
+  justify-content: center;
+  margin: 20px 0px;
 }
 
 .footer {

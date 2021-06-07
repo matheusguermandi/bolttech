@@ -4,5 +4,15 @@
   padding: 8px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 6px 6px 8px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+}
+
+.optionIcon {
+  cursor: pointer;
 }

@@ -10,7 +10,6 @@ const AuthProvider = ({ children }) => {
 
     if (token && user) {
       api.defaults.headers.authorization = `Bearer ${token}`;
-
       return { token, user: JSON.parse(user) };
     }
 
@@ -37,10 +36,10 @@ const AuthProvider = ({ children }) => {
 
     const { token, user } = response.data;
 
-    api.defaults.headers.authorization = `Bearer ${token}`;
-
     window.localStorage.setItem("@bolttech:token", token);
     window.localStorage.setItem("@bolttech:user", JSON.stringify(user));
+
+    api.defaults.headers.authorization = `Bearer ${token}`;
 
     setData({ token, user });
   };

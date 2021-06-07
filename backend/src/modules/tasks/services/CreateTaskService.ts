@@ -27,12 +27,12 @@ class CreateTaskService {
       throw new AppError('This project does not exist', 400);
     }
 
-    const tasks = await this.tasksRepository.create({
+    const task = await this.tasksRepository.create({
       description,
       project_id,
     });
 
-    return tasks;
+    return task;
   }
 }
 

@@ -13,7 +13,9 @@ class TasksRepository implements ITasksRepository {
   }
 
   public async list(project_id: string): Promise<Task[] | undefined> {
-    const taskss = await this.ormRepository.find({ where: { project_id: project_id } });
+    const taskss = await this.ormRepository.find({
+      where: { project_id: project_id },
+    });
 
     return taskss || undefined;
   }
@@ -25,11 +27,11 @@ class TasksRepository implements ITasksRepository {
   }
 
   public async create(projectCreate: ITasksDTO): Promise<Task> {
-    const tasks = this.ormRepository.create(projectCreate);
+    const task = this.ormRepository.create(projectCreate);
 
-    await this.ormRepository.save(tasks);
+    await this.ormRepository.save(task);
 
-    return tasks;
+    return await this.find(task.id) || task;
   }
 
   public async update(projectUpdate: ITasksDTO): Promise<Task> {

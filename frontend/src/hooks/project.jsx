@@ -7,16 +7,32 @@ const ProjectContext = createContext();
 const ProjectProvider = ({ children }) => {
   const { user } = useAuth();
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    (async () => {
-      const response = await api.get(`projects/${user.id}`);
-      setProjects(response.data);
-    })();
-  }, []);
+    if (user && user.id) {
+      (async () => {
+        setLoading(true);
+        const response = await api.get(`projects/${user.id}`);
+        setProjects(response.data);
+        setLoading(false);
+      })();
+    }
+  }, [user]);
+
+  const addProject = (newProject) => {
+    setProjects([...projects, { ...newProject }]);
+  };
+
+  const deleteProject = (id) => {
+    const newProjects = projects.filter((project) => project.id !== id);
+    setProjects([...newProjects]);
+  };
 
   return (
-    <ProjectContext.Provider value={{ projects, setProjects }}>
+    <ProjectContext.Provider
+      value={{ projects, loading, addProject, deleteProject }}
+    >
       {children}
     </ProjectContext.Provider>
   );
